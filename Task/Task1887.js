@@ -5,25 +5,25 @@ const obj = {
     "keyThree": "value Three",
   }
 
-  let url="https://localhost:400";
+  let Url="https://localhost:400"; // Given Url
 
-   let condition = true;
+  let condition = true;  // Applied condition just to tackle '&' //
 
   for(const x in obj){
      let value = obj[x];
 
      if(condition == true){
-     url = url + '?' + x + '=' + value;
+     Url = Url + '?' + x + '=' + value;
      condition = false;
      }
 
      else{
-        url = url + '&';
-        url = url + x;
-        url = url + '=';
-        url = url + value;
+        Url = Url + '&';
+        Url = Url + x;
+        Url = Url + '=';
+        Url = Url + value;
      }
   }
-//   https://localhost:400?keyOne=value one&keyTwo=value Two&keyThree=value Three
+//   https://localhost:400?keyOne=value one&keyTwo=value Two&keyThree=value Three  // final Url -: Answer//
 
-  console.log(url);
+console.log(Url);

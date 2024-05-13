@@ -1,0 +1,30 @@
+function deepCloneAnObject(object){
+   if(typeof object!== 'object' || object === null){ // Base Condition in recurssion//
+       return object
+   }
+
+
+   let finalobject = Array.isArray(object)?[]:{} // To check whether the object has arrays, array is also an object
+   
+
+   for(let x in object){
+     finalobject[x] = deepCloneAnObject(object[x]);
+     console.log(finalobject[x]);
+   }
+
+   return finalobject;
+}
+
+const ankit = {
+    'ankit':'saini',
+    'age':'20',
+     item:{
+        'ankit':'saini',
+        'age':'20'
+     },
+     d:[2,3,{4:"ankit",5:"saini"}]
+}
+
+deepCloneAnObject(ankit);
+JSON.stringify(ankit);
+console.log(ankit);

@@ -1,5 +1,13 @@
 //Task -1893 && 1880//
 const prompt = require('prompt-sync')(); // For The Input Line by default Input is String we will typecast It//
+
+const cal={
+  '+': (num1,num2)=>num1+num2,
+  '-':(num1,num2)=> num1 -num2,
+  '*':(num1,num2)=>num1*num2,
+  '/':(num1, num2)=>num1/num2
+}
+
 const calculator = (number1, number2, operation)=>{
     if (operation === "+") {  // These are the cases that we use in Calculator// 
          return Number(number1) + Number(number2);
@@ -20,10 +28,10 @@ function perform(calculator,...args){ // To Validate the length. Here args.lengt
     }
 
     else{
-        
+      return calculator(...args);
     }
     
-    return calculator(...args); // if the length is equal then we will calculate the output using the calculator fn 
+    // if the length is equal then we will calculate the output using the calculator fn 
 }
 
 
@@ -48,7 +56,7 @@ const y = prompt("Please enter the Number2");  // Taking Input from Prompt,numbr
 let z = prompt("Enter the operation you want to Perform");  // Taking Input from Prompt,Operation// 
 
 
-console.log(perform(calculator,x,y,z,7));
+console.log(cal)
 console.log(perform(converttocelsius,45));
 console.log(perform(converttofahereinheit,45));
 console.log(perform(calculateareaoftriangle,4,8));
@@ -58,6 +66,7 @@ let finalanswer = calculator("*",1,2,3,4,5,);
 console.log(finalanswer);
 
 const arr = ["*","/","+","-"];
+
 const check = (operand,num1,num2)=>{
     if(arr.includes(operand) == false){
       return false;
@@ -74,14 +83,11 @@ const check = (operand,num1,num2)=>{
       return true;
     }
 }
-const cal={
-  '+': (num1,num2)=>num1+num2,
-  '-':(num1,num2)=> num1 -num2,
-  '*':(num1,num2)=>num1*num2,
-  '/':(num1, num2)=>num1/num2
-}
+
+
 
  const calculatorr = (operand,num1,num2) =>{
+  
    if(check(operand,num1,num2) == false){
           console.log("Can't Do Operation");
    }
@@ -93,8 +99,8 @@ const cal={
    }
  }
 
-//  calculatorr('+',3,4);
-//  calculatorr('*',20,2);
-//  calculatorr('/',0,0);
-//  calculatorr('+','8',9);
-//  calculatorr('$',8,9);
+ calculatorr('+',3,4);
+ calculatorr('*',20,2);
+ calculatorr('/',0,0);
+ calculatorr('+','8',9);
+ calculatorr('$',8,9);

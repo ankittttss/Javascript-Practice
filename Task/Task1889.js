@@ -3,12 +3,17 @@ const square = (x) =>{
 }
 
 const squareroot = (x)=>{
+   if(x<=0){
+     return "Negative Value";
+   }
    return Math.sqrt(x);
 }
 
 const AreaoftheCircle = (x) =>{
-    let radius = square(x);
-    22/7*radius;
+    if(x<=0){
+        return "Area Can't be negative";
+    }
+    return(22/7*x*x);
 }
 
 const power = (x,y)=>{
@@ -51,14 +56,15 @@ const operation = {
     'Cos' :  (x)=>Math.cos(x),
     'logarithmic':(x)=>Math.log(x),
     'square':(x)=>x*x,
-    'sqrt':(x)=>Math.sqrt(x),
-    'AreaofCircle':(radius)=>Math.PI.radius*radius,
+    'sqrt':(x)=>x<0?"Can't do":Math.sqrt(x),
+    'AreaofCircle':(radius)=>radius<=0?"can't do":22/7*radius*radius,
     'Power':(base,expo)=>Math.pow(base,expo),
     'Sin':(x)=>Math.sin(x),
     'Tan':(x)=>Math.tan(x)
 }
 
-console.log(operation['Cos'](10));
-console.log(operation['Power'](2,3));
+// console.log(operation['Cos'](10));
+// console.log(operation['Power'](2,3));
 
-console.log(validate("Cos",operation,10,10));
+// console.log(validate("Cos",operation,10,10));
+console.log(validate("sqrt",operation,9));
