@@ -19,6 +19,7 @@ const p = new Promise((resolve,reject)=>{
 })
 
 async function handle(){
+    // JS Engine was waiting for Promise to resolve
     const val = await p;
     console.log(val);
 }
