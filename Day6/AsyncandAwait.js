@@ -15,13 +15,14 @@
 // Async and Await Combo is used to Handle the Promises//
 
 const p = new Promise((resolve,reject)=>{
-  resolve("Hi");
+  setTimeout(()=>{
+    resolve("Hi");
+  },10000)
 })
 
 async function handle(){
-    // JS Engine was waiting for Promise to resolve
     const val = await p;
     console.log(val);
 }
 
-handle();
+//o/p-: "Namaste Js ",val
