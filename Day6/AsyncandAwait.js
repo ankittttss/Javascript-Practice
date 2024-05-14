@@ -15,12 +15,32 @@
 // Async and Await Combo is used to Handle the Promises//
 
 const p = new Promise((resolve,reject)=>{
-  resolve("Hi");
+  setTimeout(()=>{
+    resolve("Hi");
+  },10000)
 })
 
-async function handle(){
-    const val = await p;
-    console.log(val);
+// // async function handle(){
+// //     const val = await p;
+// //     //Await can only be used inside function body//
+// //     //and you write it infront of the Promise//
+// //     console.log(val);
+// // }
+
+// // handle();
+
+// function getData(){
+//     p.then((res)=>console.log(res));
+//     console.log("Namaste Javascript")
+// }
+
+// getData()
+
+async function handlePromise(){
+     const val = await p;
+     console.log("Namaste Javascript");
+     console.log(val);
+     
 }
 
-handle();
+//o/p-: "Namaste Js ",val
