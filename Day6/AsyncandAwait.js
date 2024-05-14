@@ -43,4 +43,13 @@ async function handle(){
 
 handle();
 
+
+async function fetchTheData(){
+    try{
+     const data = fetch();
+     const datavalue = await data.json();
+    }catch(err){
+      console.log(err);
+    }
+}
 //o/p-: "Namaste Js ",val
