@@ -17,12 +17,30 @@
 const p = new Promise((resolve,reject)=>{
   setTimeout(()=>{
     resolve("Hi");
-  },10000)
+  },5000)
+})
+
+const p2 = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+         resolve("Hi val2");
+    },10000)
 })
 
 async function handle(){
+    // Javascript Engine waiting for promise to resolve
+    console.log("Hello World");
     const val = await p;
+    console.log("Val");
+    console.log("Hello World");
     console.log(val);
+
+    console.log("Hello World");
+    const val2 = await p2;
+    console.log("Val2");
+    console.log("Hello World");
+    console.log(val2);
 }
+
+handle();
 
 //o/p-: "Namaste Js ",val
