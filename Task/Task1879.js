@@ -1,18 +1,18 @@
-function f(obj, string = '') {
-    let tempobject = {};
-    for (let x in obj) {
-        if (obj.hasOwnProperty(x)) {
-            let newkey = string?`${string}.${x}`:x;
+function f(object, string = '') {  // We will take a default string as parameter
+    let TempObject = {}; // Initialise our answer object
+    for (let x in object) {
+        if (object.hasOwnProperty(x)) {
+            let NewKey = string?`${string}.${x}`:x;
             
-            if (typeof obj[x] === 'object' && obj[x] != null) {
-                Object.assign(tempobject, f(obj[x], newkey))
+            if (typeof object[x] === 'object' && object[x] != null) {
+                Object.assign(TempObject, f(object[x], NewKey))
             }
             else {
-                tempobject[newkey] = obj[x];
+                TempObject[NewKey] = object[x];
             }
         }
     }
-    return tempobject;
+    return TempObject;
 }
 
 const sh = {

@@ -1,19 +1,19 @@
-function deepClone(obj) {
+function DeepClone(obj) {
     // Check if obj is null or not an object
     if (obj === null || typeof obj !== 'object') {
       return obj;
     }
     
     // Create a new object to hold the cloned properties
-    let clone = Array.isArray(obj) ? [] : {};
+    let Clone = Array.isArray(obj) ? [] : {};
     
     // Iterate over each property of the object
     for ( let key of Object.keys(obj)) {
       // Recursively clone nested objects
-      clone[key] = deepClone(obj[key]);
+      Clone[key] = DeepClone(obj[key]);
     }
     
-    return clone;
+    return Clone;
   }
   
   // Example usage
@@ -27,8 +27,8 @@ function deepClone(obj) {
      },
      d:[2,3,{4:"ankit",5:"saini"}]
 } 
-const clonedObj = deepClone(ankit);
-clonedObj.ankit = 'sai';
+const ClonedObj = DeepClone(ankit);
+ClonedObj.ankit = 'sai';
 console.log(ankit);
-console.log(clonedObj)
+console.log(ClonedObj)
   
