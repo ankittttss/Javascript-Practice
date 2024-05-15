@@ -69,36 +69,119 @@
 //How to Search any value in a deeply nested object 
 
 // Search magicNumber
-let answer = "";
-function searchValue(nestedObject){
+// let answer = "";
+// function searchValue(nestedObject){
+//     for(let x in nestedObject){
+//         if(typeof nestedObject[x]!='object' && nestedObject[x]!=null && x === "magicNUmber"){
+//             answer = nestedObject[x];
+//             return nestedObject[x];
+//             // return answer;
+//         }
+
+//         else if(typeof nestedObject[x] === 'object' && nestedObject[x]!=null){
+//             searchValue(nestedObject[x]);
+//         }
+//     }
+// }
+
+// let nestedObject = {
+//     data:{
+//         info :{
+//             stuff :{
+//                 thing :{
+//                     moreStuff:{
+//                         magicNUmber:44,
+//                         something:"foo2",
+//                         random:[4,5]
+//                     }
+//                 },
+//                 stuffValue:46
+//             }
+//         }
+//     }
+// }
+
+// let y = (searchValue(nestedObject));
+// console.log(y);
+
+
+// function printNestedObject(nestedObject){
+//    for(let x in nestedObject){
+//      if(typeof nestedObject[x]=='object'){
+//              printNestedObject(nestedObject[x]);
+//      }
+
+//      else if(Array.isArray(nestedObject[x])){
+//          const arr = nestedObject[x];
+//          for(let i = 0;i<arr.length;i++){
+//              console.log(arr[i]);
+//          }
+//      }
+
+//      else{
+//         console.log(x);
+//         console.log(nestedObject[x]);
+//      }
+
+    
+//    }
+// } 
+
+
+function findByKey(nestedObject,key){
     for(let x in nestedObject){
-        if(typeof nestedObject[x]!='object' && nestedObject[x]!=null && x === "magicNUmber"){
-            answer = nestedObject[x];
-            return nestedObject[x];
+        if(x === key){
+            console.log(nestedObject[x]);
+            return;
         }
-
         else{
-            searchValue(nestedObject[x]);
+            findByKey(nestedObject[x],key);
         }
     }
 }
 
-let nestedObject = {
-    data:{
-        info :{
-            stuff :{
-                thing :{
-                    moreStuff:{
-                        magicNUmber:44,
-                        something:"foo2",
-                        random:[4,5]
-                    }
-                },
-                stuffValue:46
+let count = 1;
+
+function findTheLevel(nestedObject){
+    for(let x in nestedObject){
+        if(typeof nestedObject[x] === 'object' && nestedObject[x]!=null){
+            count++;
+            findTheLevel(nestedObject[x]);
+        }
+        else{
+            continue;
+        }
+    }
+}
+
+const nestedObject = {
+    data: {
+      info: {
+        stuff: {
+          thing: {
+            moreStuff: {
+              magicNumber: 42,
+              something: "foo",
+              random: [1, 6]
             }
+          }
         }
+      }
     }
-}
+  };
 
-let y = (searchValue(nestedObject));
-console.log(answer,y);
+//   printNestedObject(nestedObject);
+// console.log(findByKey(nestedObject,"stuff"));
+// findTheLevel(nestedObject);
+console.log(count);
+
+
+// Find Value by Key:
+// Given a nested object similar to the one above, 
+// write a function that takes a key as input and returns the corresponding value if found in the nested object.
+
+
+// Count Number of Nested Levels:
+// Write a function that accepts a nested object as 
+// input and returns the number of levels of nesting it contains.
+  
