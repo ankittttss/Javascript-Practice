@@ -32,7 +32,7 @@
 // Nested Object and Traversal
 
 // function traveseNested(obj){
-    
+
 //     for(let x in obj){
 //         // console.log(x)
 //         if(typeof obj[x] !='object'){
@@ -123,32 +123,32 @@
 //         console.log(nestedObject[x]);
 //      }
 
-    
+
 //    }
 // } 
 
 
-function findByKey(nestedObject,key){
-    for(let x in nestedObject){
-        if(x === key){
+function findByKey(nestedObject, key) {
+    for (let x in nestedObject) {
+        if (x === key) {
             console.log(nestedObject[x]);
             return;
         }
-        else{
-            findByKey(nestedObject[x],key);
+        else {
+            findByKey(nestedObject[x], key);
         }
     }
 }
 
 let count = 1;
 
-function findTheLevel(nestedObject){
-    for(let x in nestedObject){
-        if(typeof nestedObject[x] === 'object' && nestedObject[x]!=null){
+function findTheLevel(nestedObject) {
+    for (let x in nestedObject) {
+        if (typeof nestedObject[x] === 'object' && nestedObject[x] != null) {
             count++;
             findTheLevel(nestedObject[x]);
         }
-        else{
+        else {
             continue;
         }
     }
@@ -156,24 +156,24 @@ function findTheLevel(nestedObject){
 
 const nestedObject = {
     data: {
-      info: {
-        stuff: {
-          thing: {
-            moreStuff: {
-              magicNumber: 42,
-              something: "foo",
-              random: [1, 6]
+        info: {
+            stuff: {
+                thing: {
+                    moreStuff: {
+                        magicNumber: 42,
+                        something: "foo",
+                        random: [1, 6]
+                    }
+                }
             }
-          }
         }
-      }
     }
-  };
+};
 
 //   printNestedObject(nestedObject);
 // console.log(findByKey(nestedObject,"stuff"));
 // findTheLevel(nestedObject);
-console.log(count);
+// console.log(count);
 
 
 // Find Value by Key:
@@ -184,4 +184,9 @@ console.log(count);
 // Count Number of Nested Levels:
 // Write a function that accepts a nested object as 
 // input and returns the number of levels of nesting it contains.
-  
+
+
+// let p = fetch("https://goweather.herokuapp.com/weather/Ny");
+// p.then((response) => {
+//     () =>return response.json();
+//     }).then((response) => { console.log(response) });
