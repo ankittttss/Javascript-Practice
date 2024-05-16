@@ -39,5 +39,5 @@ const obj = {
  // Example usage:
  const baseUrl = "https://localhost:400";
  const queryStringUrl = generateQuery(obj, url);
- console.log(baseUrl + `?`+queryStringUrl);
+ console.log(baseUrl + `?`+ queryStringUrl);
  

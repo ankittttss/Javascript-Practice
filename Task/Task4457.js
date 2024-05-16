@@ -1,6 +1,7 @@
 function DeepClone(obj) {
     // Check if obj is null or not an object
     if (obj === null || typeof obj !== 'object') {
+      console.log(obj)
       return obj;
     }
     
@@ -29,6 +30,6 @@ function DeepClone(obj) {
 } 
 const ClonedObj = DeepClone(ankit);
 ClonedObj.ankit = 'sai';
-console.log(ankit);
-console.log(ClonedObj)
+// console.log(ankit);
+// console.log(ClonedObj)
   
